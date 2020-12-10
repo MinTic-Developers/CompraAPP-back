@@ -1,7 +1,7 @@
 # CompraAPP
 
 Description:
-Desarrollo REST
+Desarrollo REST de una aplicacion de compra y venta de productos.
 
 
 Desarrolladores:
