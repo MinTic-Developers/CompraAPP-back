@@ -9,5 +9,5 @@ Desarrolladores:
 -Nicolas <mail>
 -Jhonatan <mail>
 -Laura <mail>
--Monica <mail>
+-Monica <moniarbe233@gmail.com>
 -Jose Eduardo Tirado Verbel <jotive@gmail.com>
