@@ -13,7 +13,7 @@ async def root():
 async def productos():
     return {"Productos": database_products}
 
-@app.get("/products/{username}") #GET / HTTP/1.1 (LADO DEL)
+@app.get("/products/{codigo}") #GET / HTTP/1.1 (LADO DEL)
 async def get_user_br_codigo(codigo: str):
     if codigo in database_products:
         return {"Productos": database_products[codigo]}
