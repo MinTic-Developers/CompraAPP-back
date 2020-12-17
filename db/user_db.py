@@ -2,6 +2,7 @@ from typing import Dict
 from pydantic import BaseModel
 
 class UserInDB(BaseModel):
+    codigo: str
     nombre: str
     contraseña: str
     direccion: str
@@ -28,6 +29,3 @@ def get_user(codigo: str):
     else:
         return None
 
-def update_product(user_in_db: UserInDB):
-    database_user[user_in_db.codigo] = user_in_db
-    return user_in_db

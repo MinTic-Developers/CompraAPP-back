@@ -23,7 +23,7 @@ database_products = {
                             "cant_disponible":1000}),
 }
 
-def get_products(codigo: str):
+def get_product(codigo: str):
     if codigo in database_products.keys():
         return database_products[codigo]
     else:
