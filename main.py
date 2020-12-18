@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 origins = [
-    "https://compraapp-front.herokuapp.com/",
+    "https://compraapp-front.herokuapp.com/"
 ]
 
 app.add_middleware(
