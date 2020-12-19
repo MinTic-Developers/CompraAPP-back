@@ -1,10 +1,12 @@
 from pydantic import BaseModel
 
-class UserctIn(BaseModel):
+class UserIn(BaseModel):
     codigo: str
-    direccion: str
-
-class ProductOut(BaseModel):
     nombre: str
     contraseña: str
+    direccion: str
+
+class UserOut(BaseModel):
+    codigo: str
+    nombre: str
     direccion: str

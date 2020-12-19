@@ -1,6 +1,9 @@
 from db.productos_db import ProductInDB, update_product, get_product, database_products
 from models.productos_models import ProductIn, ProductOut
 
+from db.user_db import UserInDB, update_user, get_user, database_user
+from models.user_models import UserIn, UserOut
+
 from fastapi import FastAPI
 from fastapi import HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -15,7 +18,7 @@ app.add_middleware(
     CORSMiddleware, allow_origins=origins,
     allow_credentials=True, allow_methods=["*"], allow_headers=["*"],
 )
-
+##HTTP producto
 @app.get("/") #GET / HTTP/1.1 (LADO DEL)
 async def root():
     return {"message": "Hello: ComprAPP"}
@@ -25,7 +28,7 @@ async def productos():
     return {"Productos": database_products}
 
 @app.get("/products/{codigo}") #GET / HTTP/1.1 (LADO DEL)
-async def get_user_br_codigo(codigo: str):
+async def get_product_by_codigo(codigo: str):
     if codigo in database_products:
         return {"Productos": database_products[codigo]}
     else:
@@ -45,3 +48,26 @@ async def delete_producto(producto: ProductInDB):
 async def update_producto(producto: ProductInDB):
     database_products[producto.codigo]=producto
     return producto
+
+#HTTP usuario
+@app.get("/users/{codigo}") #GET / HTTP/1.1 (LADO DEL)
+async def get_user_br_codigo(codigo: str):
+    if codigo in database_user:
+        return {"Usuarios": database_user[codigo]}
+    else:
+        raise HTTPException(status_code=404, detail="El usuario no se encuentra registrado!")
+
+@app.post("/users/")
+async def create_usuario(usuario: UserInDB):
+    database_user[usuario.codigo]=usuario
+    return usuario
+
+@app.delete("/users/")
+async def delete_usuario(usuario: UserInDB):
+    del database_user[usuario.codigo]
+    return usuario
+
+@app.put("/users/")
+async def update_usuario(usuario: UserInDB):
+    database_user[usuario.codigo]=usuario
+    return usuario
