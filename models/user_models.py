@@ -3,7 +3,7 @@ from pydantic import BaseModel
 class UserIn(BaseModel):
     codigo: str
     nombre: str
-    contraseña: str
+    contrasena: str
     direccion: str
 
 class UserOut(BaseModel):
